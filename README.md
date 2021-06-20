@@ -55,7 +55,7 @@ Of the 12 tickers only 2 had a positve return in 2018.  The over all best perfor
             End If
        Next j
 ```
-- The refactored subroutine utilized 4 arrays and 3 for loops to intialize, collect and display the data.
+- The refactored subroutine utilized 4 arrays and 3 for loops to intialize, collect and display the data.  
 '''
     Dim tickers(12) As String
     tickers(0) = "AY"
