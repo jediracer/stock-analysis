@@ -10,7 +10,7 @@ comparison with the first subroutine.
 ## Results
 ### Stock Performance
 - The over stock performance was better in 2017 vs. 2018. Only 1 of the tickers in 2017 did not have a positive return.
-Of the 12 tickers only 2 had a positve return in 2018.  The over all best performing ticker is ENPH in 2017 and 2018 combined. 
+Of the 12 tickers only 2 had a positive return in 2018.  The over all best performing ticker is ENPH in 2017 and 2018 combined. 
 ### Script Comparison
 - The original subroutine used a single array and nested for loops.  
 ```
@@ -55,8 +55,8 @@ Of the 12 tickers only 2 had a positve return in 2018.  The over all best perfor
             End If
        Next j
 ```
-- The refactored subroutine utilized 4 arrays and 3 for loops to intialize, collect and display the data.  
-'''
+- The refactored subroutine utilized 4 arrays and 3 for loops to initialize, collect and display the data.  
+```
     Dim tickers(12) As String
     tickers(0) = "AY"
     tickers(1) = "CSIQ"
@@ -113,18 +113,18 @@ Of the 12 tickers only 2 had a positve return in 2018.  The over all best perfor
         Cells(outRow + 4, 3).Value = tickerEndingPrices(outRow) / tickerStartingPrices(outRow) - 1
         
     Next outRow
-'''
+```
 - The refactored subroutine ran significantly faster for both the 2017 and the 2018 data (see below)
   - ![2017 Results and Run Time](https://github.com/jediracer/stock-analysis/blob/main/resources/VBA_Challenge_2017.png)
   - ![2018 Results and Run Time](https://github.com/jediracer/stock-analysis/blob/main/resources/VBA_Challenge_2018.png)
 ## Results
 ### Refactoring Code
-- Refactoring code can be adventagous because it allows you to cleanup and make your script run more effiencently.  Cleaning you code
+- Refactoring code can be advantageous because it allows you to cleanup and make your script run more efficiently.  Cleaning you code
 will make it easier for yourself and others to read in the event it needs revisited in the future.  Refactored scripts also run
-more effiencetly, improving performance, and saving time.
-- The disvantage of refactoring code is the time it takes.  You are spending time reworking an already functioning script.
+more efficiently, improving performance, and saving time.
+- The disadvantage of refactoring code is the time it takes.  You are spending time reworking an already functioning script.
 ### Refactoring of the AllStocksAnalysis vba subroutine
 - The refactoring of this script made the process run faster, which is a great advantage. Using multiple arrays to store 
-the data during the process and displaying it at the end made the whole process run more effiently and increased performance.
-- The disadvantages of refactoring this subroutine were; 1) the time it took to complete tyhe refactoring, and 2) the over length
+the data during the process and displaying it at the end made the whole process run more efficiently and increased performance.
+- The disadvantages of refactoring this subroutine were; 1) the time it took to complete the refactoring, and 2) the over length
 of the script is longer.
