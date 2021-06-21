@@ -3,16 +3,16 @@ Performing analysis on stock data from 2017 and 2018
 ## Overview of Project
 ### Purpose
 - Create a VBA subroutine that allows the user to enter the year of data to be analyzed.  
-Then collect and summarize stock data based on user input.  Format the data to make it easier to read and use 
-conditionals to color code results. Finally, add a timer and display the run time of the subroutine. 
-- Refactor the subroutine performing the same tasks and display the run time of the refactored subroutine for 
-comparison with the first subroutine.
+Then collect and summarize stock data based on user input.  Format the data and use conditionals to color code results making it easier for 
+the user to read. Finally, add a timer and display the run time of the subroutine. 
+- Refactor the subroutine using different methods to archive the same results.  Also, calculate and display the run time of the refactored subroutine 
+for comparison with the first subroutine.
 ## Results
 ### Stock Performance
-- The over stock performance was better in 2017 vs. 2018. Only 1 of the tickers in 2017 did not have a positive return.
-Of the 12 tickers only 2 had a positive return in 2018.  The over all best performing ticker is ENPH in 2017 and 2018 combined. 
+- The overall stock performance was better in 2017 vs. 2018. Only 1 of the tickers in 2017 did not have a positive return.
+Of the 12 tickers only 2 had a positive return in 2018.  The over all best performing ticker was ENPH in over the 2 year period. 
 ### Script Comparison
-- The original subroutine used a single array and nested for loops.  
+- The original subroutine used a single array (only to store the tickers), nested for loops and displayed the data as it was collected.  
 ```
     Dim tickers(12) As String
         tickers(0) = "AY"
@@ -46,16 +46,17 @@ Of the 12 tickers only 2 had a positive return in 2018.  The over all best perfo
                 totalVolume = totalVolume + Cells(j, 8).Value
             End If
 
-           If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+            If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                 startingPrice = Cells(j, 6).Value
             End If
             
             If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
                 endingPrice = Cells(j, 6).Value
             End If
-       Next j
+        Next j
 ```
-- The refactored subroutine utilized 4 arrays and 3 for loops to initialize, collect and display the data.  
+- The refactored subroutine utilized 4 arrays and 3 separate for loops to initialize, collect and finally display the data after all 
+of the data was collected.  
 ```
     Dim tickers(12) As String
     tickers(0) = "AY"
@@ -105,26 +106,26 @@ Of the 12 tickers only 2 had a positive return in 2018.  The over all best perfo
         
     Next i
 
-    For outRow = 0 To 11
+    For tickerIndex = 0 To 11
         Worksheets("All Stocks Analysis").Activate
         
-        Cells(outRow + 4, 1).Value = tickers(outRow)
-        Cells(outRow + 4, 2).Value = tickerVolumes(outRow)
-        Cells(outRow + 4, 3).Value = tickerEndingPrices(outRow) / tickerStartingPrices(outRow) - 1
+        Cells(tickerIndex + 4, 1).Value = tickers(tickerIndex)
+        Cells(tickerIndex + 4, 2).Value = tickerVolumes(tickerIndex)
+        Cells(tickerIndex + 4, 3).Value = tickerEndingPrices(tickerIndex) / tickerStartingPrices(tickerIndex) - 1
         
-    Next outRow
+    Next tickerIndex
 ```
-- The refactored subroutine ran significantly faster for both the 2017 and the 2018 data (see below)
+- The refactored subroutine ran significantly faster for both the 2017 and the 2018 data (see the results below).
   - ![2017 Results and Run Time](https://github.com/jediracer/stock-analysis/blob/main/resources/VBA_Challenge_2017.png)
   - ![2018 Results and Run Time](https://github.com/jediracer/stock-analysis/blob/main/resources/VBA_Challenge_2018.png)
 ## Results
 ### Refactoring Code
-- Refactoring code can be advantageous because it allows you to cleanup and make your script run more efficiently.  Cleaning you code
-will make it easier for yourself and others to read in the event it needs revisited in the future.  Refactored scripts also run
+- Refactoring code can be advantageous as it allows you to cleanup the code and make the script run more efficiently.  Cleaning up the code
+will make it easier for yourself and others to read in the event it needs to be revisited in the future.  Refactored scripts also run
 more efficiently, improving performance, and saving time.
-- The disadvantage of refactoring code is the time it takes.  You are spending time reworking an already functioning script.
+- The disadvantage of refactoring code is the time it takes to complete the task.  You are spending time reworking an already functioning script.
 ### Refactoring of the AllStocksAnalysis vba subroutine
-- The refactoring of this script made the process run faster, which is a great advantage. Using multiple arrays to store 
-the data during the process and displaying it at the end made the whole process run more efficiently and increased performance.
+- The refactoring of this script made the process run more quickly, which is a great advantage. Using multiple arrays to store 
+the data during the process and then displaying it at the end, made the whole process run more efficiently.
 - The disadvantages of refactoring this subroutine were; 1) the time it took to complete the refactoring, and 2) the over length
-of the script is longer.
+of the script is slightly longer.
