@@ -82,7 +82,7 @@ Of the 12 tickers only 2 had a positive return in 2018.  The over all best perfo
     Dim tickerEndingPrices(12) As Single
     
     For j = 0 To 11
-        tickerVolumes(tickerIndex) = 0
+        tickerVolumes(j) = 0
     Next j
     
     tickerIndex = 0
