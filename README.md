@@ -10,7 +10,7 @@ for comparison with the first subroutine.
 ## Results
 ### Stock Performance
 - The overall stock performance was better in 2017 vs. 2018. Only 1 of the tickers in 2017 did not have a positive return.
-Of the 12 tickers only 2 had a positive return in 2018.  The over all best performing ticker was ENPH in over the 2 year period. 
+Of the 12 tickers only 2 had a positive return in 2018.  The over all best performing ticker was ENPH over the 2 year period. 
 ### Script Comparison
 - The original subroutine used a single array (only to store the tickers), nested for loops and displayed the data as it was collected.  
 ```
@@ -124,7 +124,7 @@ of the data was collected.
 will make it easier for yourself and others to read in the event it needs to be revisited in the future.  Refactored scripts also run
 more efficiently, improving performance, and saving time.
 - The disadvantage of refactoring code is the time it takes to complete the task.  You are spending time reworking an already functioning script.
-### Refactoring of the AllStocksAnalysis vba subroutine
+### Refactoring of the AllStocksAnalysis VBA Subroutine
 - The refactoring of this script made the process run more quickly, which is a great advantage. Using multiple arrays to store 
 the data during the process and then displaying it at the end, made the whole process run more efficiently.
 - The disadvantages of refactoring this subroutine were; 1) the time it took to complete the refactoring, and 2) the over length
